@@ -1,7 +1,7 @@
 import re
 import requests as re
 from telethon import TelegramClient, events
-from telethon.tl.types import InlineKeyboardButton, InlineKeyboardMarkup
+from telethon.tl.custom import InlineKeyboardButton, InlineKeyboardMarkup
 import wget
 import os
 
@@ -87,8 +87,8 @@ async def mailbox(event):
         else:
             dlattach = attachments['filename']
             attc = "https://www.1secmail.com/api/v1/?action=download&login=" + email[:email.find("@")] + "&domain=" + email[
-                                                                                                                     email.find(
-                                                                                                                         "@") + 1:] + "&id=" + idnum + "&file=" + dlattach
+                                                                                                                      email.find(
+                                                                                                                          "@") + 1:] + "&id=" + idnum + "&file=" + dlattach
             print(attc)
             mailbox_vieww = 'ID No : ' + idnum + '\nFrom : ' + from_mail + '\nDate : ' + date + '\nSubject : ' + subjectt + '\nmessage : \n' + body + '\n\n' + '[Download](' + attc + ') Attachments'
             filedl = wget.download(attc)
